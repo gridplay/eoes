@@ -21,3 +21,6 @@ June 4 2024 - This could be the last upload of this server as im tired of stupid
 Looking into other network solutions for EoE.
 
 June 5 2024 - Put this repo in archive mode cuz of to many errors that makes no sense at all to me. If anyone wants to fork it for yourself or steal the code go for it cuz im done with Java
+
+Oct 2 2024 - Redid the repo and code. Netty working perfectly with Unity so far with help from Microsoft's Copilot AI
+Oh ya Netty is TCP/UDP now same with the code in the client. Both tested with a simple test message.
