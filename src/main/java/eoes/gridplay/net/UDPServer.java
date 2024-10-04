@@ -36,9 +36,5 @@ public class UDPServer {
             group.shutdownGracefully();
         }
     }
-
-    public static void main(String[] args) throws InterruptedException {
-        new UDPServer(666).start();
-    }
 }
 

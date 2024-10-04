@@ -40,9 +40,5 @@ public class TCPServer {
             workerGroup.shutdownGracefully();
         }
     }
-
-    public static void main(String[] args) throws InterruptedException {
-        new TCPServer(666).start();
-    }
 }
 

@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 public class App 
 {
 	public static void main(String[] args) throws InterruptedException {
+		System.out.println("Starting server");
 	    TCPServer tcpServer = new TCPServer(666);
 	    UDPServer udpServer = new UDPServer(666);
 	    ExecutorService executor = Executors.newFixedThreadPool(2);

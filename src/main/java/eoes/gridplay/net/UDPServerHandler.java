@@ -24,7 +24,6 @@ public class UDPServerHandler extends SimpleChannelInboundHandler<DatagramPacket
 	@Override
 	public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
