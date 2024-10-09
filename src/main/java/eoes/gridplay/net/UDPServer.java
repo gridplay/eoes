@@ -1,7 +1,7 @@
 package eoes.gridplay.net;
 import io.netty.bootstrap.Bootstrap;
+import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelPipeline;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.DatagramChannel;
 import io.netty.channel.socket.nio.NioDatagramChannel;
@@ -23,15 +23,13 @@ public class UDPServer {
              .channel(NioDatagramChannel.class)
              .handler(new ChannelInitializer<DatagramChannel>() {
                  @Override
-                 public void initChannel(DatagramChannel ch) {
-                     ChannelPipeline p = ch.pipeline();
-                     p.addLast(new StringDecoder());
-                     p.addLast(new StringEncoder());
-                     p.addLast(new UDPServerHandler());
+                 protected void initChannel(DatagramChannel ch) throws Exception {
+                     ch.pipeline().addLast(new StringDecoder(), new StringEncoder(), new UDPServerHandler());
                  }
              });
 
-            b.bind(port).sync().channel().closeFuture().await();
+            ChannelFuture f = b.bind(port).sync();
+            f.channel().closeFuture().await();
         } finally {
             group.shutdownGracefully();
         }
